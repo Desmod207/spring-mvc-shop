@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Main page</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <a href="/">Logo</a>
+            </div>
+            <div>
+                <a href="/profile">Profile</a>
+            </div>
+            <form method="POST" th:action="@{/logout}">
+                <input type="submit" value="Logout"/>
+            </form>
+            <div>
+                <a href="/cart">Cart</a>
+            </div>
+        </div>
+        <ul>
+            <li th:each="product : ${products}">
+                <div>
+                    <img th:src="@{${product.getImagePath()}}" th:alt="${product.name}" width="100">
+                    <a th:href="@{products/{id}(id = ${product.getId()})}" th:text="${product.name}">Product name</a>
+                </div>
+            </li>
+        </ul>
+    </body>
+</html>

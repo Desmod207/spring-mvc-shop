@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Profile page</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <a href="/">Logo</a>
+            </div>
+            <div>
+                <a href="/cart">Cart</a>
+            </div>
+        </div>
+        <div>
+            <p th:text="${user.username}">User name</p>
+            <p th:text="${user.deliveryAddress}">User delivery address</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Cart page</title>
+    </head>
+    <body>
+        <div>
+            <div>
+                <a href="/">Logo</a>
+            </div>
+            <div>
+                <a href="/profile">Profile</a>
+            </div>
+        </div>
+        <h1>Cart</h1>
+        <ul>
+            <li th:each="product : ${cart.getProducts()}">
+                <p th:text="${product.name}">Product name</p>
+            </li>
+        </ul>
+        <form method="POST" th:action="@{/cart}">
+            <input type="submit" value="Order"/>
+        </form>
+        
+    </body>
+</html>

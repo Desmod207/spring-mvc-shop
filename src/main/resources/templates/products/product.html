@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Product page</title>
+    </head>
+    <body>
+        <header>
+            <div>
+                <div>
+                    <a href="/">Logo</a>
+                </div>
+                <div>
+                    <a href="/profile">Profile</a>
+                </div>
+                <div>
+                    <a href="/cart">Cart</a>
+                </div>
+            </div>
+        </header>
+        <form method="POST" th:object="${product}">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/> <!-- Копируем CSRF токен в скрытое поле -->
+            <div>
+                <img th:src="@{${product.getImagePath()}}" th:alt="${product.name}">
+                <p th:text="${product.name}">Product name</p>
+                <p th:text="${product.description}">Product description</p>
+                <p th:text="${product.price}">Product price</p>
+                <button>Add to cart</button>
+            </div>
+        </form>
+    </body>
+</html>
